@@ -31,18 +31,7 @@ namespace Project2
             }
 
 
-            ChickenFarm chickenFarm = new ChickenFarm();
-            Thread farmer = new Thread(new ThreadStart(chickenFarm.farmerFunc));
-            farmer.Start();
-            Retailers chickenStore = new Retailers();
-            ChickenFarm.priceCut += new priceCutEvent(chickenStore.chickenOnSale);
-            Thread[] retailers = new Thread[3];
-            for (int i = 0; i < 3; i++)
-            {
-                retailers[i] = new Thread(new ThreadStart(chickenStore.retailerFunc));
-                retailers[i].Name = (i + 1).ToString();
-                retailers[i].Start();
-            }
+           
         }
     }
 }
