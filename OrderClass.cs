@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project2
 {
-    class Class1
+    class OrderClass
     {
     }
 }

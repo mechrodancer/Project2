@@ -29,6 +29,8 @@ namespace Project2
                 theater_threads[i].Start();
                 while (!theater_threads[i].IsAlive) ;
             }
+
+
             ChickenFarm chickenFarm = new ChickenFarm();
             Thread farmer = new Thread(new ThreadStart(chickenFarm.farmerFunc));
             farmer.Start();
