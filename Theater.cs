@@ -18,6 +18,7 @@ namespace Project2
         private double prev_Price = 0.0;
 
         private static Random rnd = new Random();
+        private static Random rand_date = new Random();
         private PriceCutEvent pricecutevent;
 
         public delegate void PriceCutEvent(PriceCutEventHandler p);
@@ -52,20 +53,58 @@ namespace Project2
 
         //Using pricing model to set dynamic pricing
 
+        public void Set_ticketPrice()
+        {
+            DateTime now = DateTime.Now;
+            int range = rand_date.Next(1,36);
 
+            Console.WriteLine("Today's date is {0}", now.Date);
+            DateTime order_date = DateTime.Now.AddDays(range);
+
+            prev_Price = new_Price;
+            Random rand_numOrder = new Random();
+            int num_order = rand_numOrder.Next(1, 2);
+
+            new_Price = PricingModel.calc_newPrice(num_order, order_date);
+            prev_Price = PricingModel.original_price;
+
+        }
+
+        
 
         //Emmiting event to ticketbroker if price change (new price < oldprice)
+        public void newPriceEvent()
+        {
+
+        }
 
 
         //Receiving order from MultiCellBuffer
+        public void receive_Order()
+        {
+
+        }
 
 
         //Ccreate order Processing thread
+        public void proccess_Order()
+        {
+
+        }
 
         //Method started by main
 
-        //Defines a price cut event to call event handlers in broker
         //For each order, spawn an order processing thread
+        public void show_Order()
+        {
+
+        }
+       
+        //Defines a price cut event to call event handlers in broker 
+        public void PriceCutEvent()
+        {
+
+        }
         
     }
 
